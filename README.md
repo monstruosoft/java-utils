@@ -1,13 +1,13 @@
 # java-utils
 Utilidades Java de monstruosoft
 
-### Contenido del repositorio
+### Contenido
 
 #### Paquete *org.monstruosoft.utils*
-* Clase **TareasProgramación**
+* Clase **TareasProgramacion**
   * Método **cantidadConLetra()** - Convierte un número a su representación en forma de texto
 
 
 
 ###### Última modificación
-sáb oct 14 18:00:14 CDT 2017
+dom oct 15 01:00:33 CDT 2017
