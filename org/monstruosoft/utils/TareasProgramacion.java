@@ -55,6 +55,11 @@ public class TareasProgramacion {
     private static final String UNIDADES[] = {"", "Un ", "Dos ", "Tres ", "Cuatro ", "Cinco ", "Seis ", "Siete ", "Ocho ", "Nueve "};
     private static final String DECENAS[]  = {"", "Dieci", "Veinti", "Treinta ", "Cuarenta ", "Cincuenta ", "Sesenta ", "Setenta ", "Ochenta ", "Noventa "};
     private static final String CENTENAS[] = {"", "Ciento ", "Doscientos ", "Trescientos ", "Cuatrocientos ", "Quinientos ", "Seiscientos ", "Setecientos ", "Ochocientos ", "Novecientos "};
+
+    private static final String ROMANOS_UNIDADES[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    private static final String ROMANOS_DECENAS[]  = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    private static final String ROMANOS_CENTENAS[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+    private static final String ROMANOS_MILES[]    = {"", "M", "MM", "MMM"};
     
     /**
      * Convierte el número que recibe como argumento a su representación escrita con letra.
@@ -86,6 +91,33 @@ public class TareasProgramacion {
         if (triMiles > 0)       result.append(triTexto(triMiles).toString() + "Mil ");
         if (triUnidades > 0)    result.append(triTexto(triUnidades).toString());
         
+        return result.toString();
+    }
+
+
+
+    /**
+     * Convierte el número que recibe como argumento a su representación escrita con números romanos.
+     * 
+     * @param s Una cadena de texto que contiene los dígitos de un número. El rango válido para este 
+     *          argumento es entre 1 y 3999.
+     * @return  Una cadena de texto que contiene la representación escrita con números romanos de 
+     *          la parte entera del número que se recibió como argumento.
+     */
+    public static String cantidadNumerosRomanos(String s) {
+        StringBuilder result = new StringBuilder();
+        BigDecimal totalBigDecimal = new BigDecimal(s).setScale(2, BigDecimal.ROUND_DOWN);
+        long parteEntera = totalBigDecimal.toBigInteger().longValue();
+
+        if (parteEntera < 1 || parteEntera > 3999)
+            throw new IllegalArgumentException("El número a convertir debe estar entre 1 y 3999.");
+
+        int m = (int)parteEntera / 1000, c = (int)(parteEntera % 1000) / 100, d = (int)(parteEntera % 100) / 10, un = (int)parteEntera % 10;
+        result.append(ROMANOS_MILES[m]);
+        result.append(ROMANOS_CENTENAS[c]);
+        result.append(ROMANOS_DECENAS[d]);
+        result.append(ROMANOS_UNIDADES[un]);
+
         return result.toString();
     }
     
