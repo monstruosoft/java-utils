@@ -7,9 +7,11 @@ Utilidades Java de monstruosoft
 * Clase **TareasProgramacion**
   * Método **cantidadConLetra()** - Convierte un número a su representación en forma de texto
   * Método **cantidadNumerosRomanos()** - Convierte un número a su representación en números romanos
+  * Método **numerosPrimos()** - Genera una lista de números primos menores al entero que se pasa como parámetro.
 
 
 
 ###### Última modificación
-Mon Jan 15 11:54:39 CST 2018
+Sun Jan 20 12:31:16 CST 2019
+
 

@@ -48,6 +48,7 @@ package org.monstruosoft.utils;
 // Para el formato de cantidades
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 
 
@@ -119,6 +120,34 @@ public class TareasProgramacion {
         result.append(ROMANOS_UNIDADES[un]);
 
         return result.toString();
+    }
+
+
+
+    /**
+     * Genera una lista de enteros que contiene todos los números primos menores a *max*
+     *
+     * @param i Un entero que define el límite de la búsqueda de números primos.
+     * @return  Una lista de enteros, cada entero en la lista es un número primo.
+     */
+    public static ArrayList<Integer> numerosPrimos(int max) {
+        ArrayList<Integer> primos = new ArrayList<Integer>();
+        primos.add(2);
+
+        for (int i = 3; i < max; i++) {
+            boolean es_primo = true;
+            double limite = Math.ceil(Math.sqrt(i));
+            for (int j = 0; j < primos.size(); j++) {
+                if (i % primos.get(j) == 0) {
+                    es_primo = false;
+                    break;
+                }
+                if (primos.get(j) > limite) break;
+            }
+            if (es_primo) primos.add(i);
+        }
+
+        return primos;
     }
     
     
